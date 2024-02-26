@@ -12,9 +12,9 @@ tickers = ['spy',
        'fb', 'dis', 'bynd', 'nflx', 'jnug', 'ge', 'rad', 'sq', 'atvi', 'uso',
        'twtr', 'amc', 'bb', 'nok', 'pltr', 'gme']
 
-saveplot = '/mnt/TANK4TB/User_feature_analysis/User_features_analysis_new/Plot/With_user_filter_II/PCA/PCA_same_samples_final/Spectral_clustering/'
-path = '/mnt/TANK4TB/User_feature_analysis/User_features_analysis_new/Data/With_user_filter_II/PCA_same_samples_final/Spectral_Clustering/s_lt_0.3/'
-savedata = '/mnt/TANK4TB/User_feature_analysis/User_features_analysis_new/Data/With_user_filter_II/PCA_same_samples_final/Spectral_Clustering/s_lt_0.3/'
+saveplot = ''
+path = ''
+savedata = ''
 
 
 w = [23, 54, 84, 115, 145, 176]
