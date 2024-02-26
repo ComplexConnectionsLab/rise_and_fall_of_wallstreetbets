@@ -3,18 +3,10 @@ import pandas as pd
 from sklearn.cluster import DBSCAN
 from sklearn import metrics
 from sklearn.decomposition import PCA
-#import matplotlib.pyplot as plt
-#import matplotlib
-#matplotlib.style.use("seaborn-dark")
 from tqdm import tqdm
-#from sklearn.manifold import TSNE
-# import seaborn as sns
-# import matplotlib.pyplot as plt
-# import matplotlib
-# matplotlib.style.use("seaborn-dark")
 
-path = '/mnt/TANK4TB/Reddit_3/User_feature_analysis/User_features_analysis_new/Data/With_user_filter_II/User_standardized_features_new/'
-savedata = '/mnt/TANK4TB/Reddit_3/User_feature_analysis/User_features_analysis_new/Data/With_user_filter_II/PCA_ensamble_avg_new/Average_features_clusters_all_weeks/'
+path = ''
+savedata = ''
 
 dropcols = ['spy','amd','tsla','mu','aapl','amzn','msft','snap','nvda','spce','fb','dis','bynd','nflx','jnug','ge','rad','sq','atvi','uso','twtr','amc','bb','nok','pltr','gme']
 
