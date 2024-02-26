@@ -5,8 +5,8 @@ import numpy.linalg
 from sklearn.decomposition import PCA
 from sklearn.metrics import pairwise_distances
 
-path = '/mnt/TANK4TB/User_feature_analysis/User_features_analysis_new/Data/With_user_filter_II/User_standardized_features_new/'
-savedata = '/mnt/TANK4TB/User_feature_analysis/User_features_analysis_new/Data/With_user_filter_II/PCA_same_samples_final/Spectral_Clustering/s_lt_0.3/'
+path = ''
+savedata = ''
 
 tickers = ['spy',
        'amd', 'tsla', 'mu', 'aapl', 'amzn', 'msft', 'snap', 'nvda', 'spce',
