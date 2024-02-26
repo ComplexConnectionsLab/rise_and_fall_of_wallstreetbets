@@ -2,7 +2,6 @@ import pandas as pd
 from matplotlib import pyplot as plt
 import matplotlib
 matplotlib.style.use("seaborn-talk")
-#from sklearn import metrics
 import seaborn as sns
 from sklearn.manifold import TSNE
 from sklearn.cluster import DBSCAN
@@ -12,10 +11,9 @@ from sklearn.metrics import silhouette_score
 #################################################################################################################################################
 ########### using same samples used for spectral clustering
 
-path = '/mnt/TANK4TB/User_feature_analysis/User_features_analysis_new/Data/With_user_filter_II/PCA_same_samples_final/Spectral_Clustering/s_lt_0.3/'
-savepath = '/mnt/TANK4TB/User_feature_analysis/User_features_analysis_new/Data/With_user_filter_II/PCA_same_samples_final/DBSCAN/eps_1/min_samples_15/'
-#saveplot = '/mnt/TANK4TB/User_feature_analysis/User_features_analysis_new/Plot/With_user_filter_II/PCA/PCA_same_samples_final/DBSCAN/'
-saveplot = '/mnt/TANK4TB/User_feature_analysis/User_features_analysis_new/Plot/Paper_figures/DBSCAN_tsne/DPI_500/'
+path = ''
+savepath = ''
+saveplot = ''
 
 w = [23, 54, 84, 115, 145, 176]
 
@@ -24,7 +22,6 @@ weeks = ['24-30 Aug', '24-30 Sept', '24-30 Oct', '24-30 Nov', '24-30 Dec', '24-3
 colors = ['#04e756', '#de0074', '#f7b500', '#ADA1CE', '#388D72', '#00FFF2', '#F2FF00', '#A600FF', '#F6DBFF', '#77685D']
 #posters f7b500, active de0074, commenters 04e756
 
-#silscore = []
 j = 0
 for i in w:
         
@@ -40,7 +37,6 @@ for i in w:
     
     db = DBSCAN(eps=1, min_samples=15).fit(X)
     
-    #features = pd.read_csv(savepath + 'features_sample_week_{}.csv'.format(i), index_col = 0)
     l = len(set(db.labels_)) - (1 if -1 in db.labels_ else 0)
     n_noise_ = list(db.labels_).count(-1)
     
@@ -49,18 +45,6 @@ for i in w:
     
     n_noise = list(features.labels).count(-1)
     l = features.labels.nunique() - 1
-    
-    # df = features[features.labels != -1]
-    # labs2 = df.labels
-    #df = features.drop(columns = ['labels', 'author'])
-    #X = df.to_numpy()
-    #projection = TSNE().fit_transform(X)
-    
-    # pca2 = PCA(n_components = 10)
-    # X2 = pca2.fit(df).transform(df)
-    
-    #silhouette = silhouette_score(X2, labs2)
-    #silscore.append(silhouette)
          
     csize = pd.DataFrame(features['labels'].value_counts()).reset_index()
     order = list(csize['index'])
@@ -82,12 +66,3 @@ for i in w:
     print('{}, clusters: {}, noise: {:.2f}%'.format(weeks[j], l, n_noise/len(features)*100))
     
     j += 1
-
-# silscore = pd.Series(silscore)
-# silscore.to_csv(savepath + 'silhouette.csv')
-
-
-
-
-
-
