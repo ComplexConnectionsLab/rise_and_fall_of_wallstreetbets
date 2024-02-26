@@ -2,13 +2,11 @@ import pandas as pd
 from matplotlib import pyplot as plt
 import matplotlib
 matplotlib.style.use("seaborn-talk")
-#from sklearn import metrics
 from sklearn.metrics.cluster import adjusted_rand_score
 
-scdata = '/mnt/TANK4TB/User_feature_analysis/User_features_analysis_new/Data/With_user_filter_II/PCA_same_samples_final/Spectral_Clustering/s_lt_0.3/'
-#dbsdata = '/mnt/TANK4TB/User_feature_analysis/User_features_analysis_new/Data/With_user_filter_II/PCA_same_samples_final/DBSCAN/eps_1/'
-dbsdata = '/mnt/TANK4TB/User_feature_analysis/User_features_analysis_new/Data/With_user_filter_II/PCA_same_samples_final/DBSCAN/eps_1/min_samples_15/'
-saveplot = '/mnt/TANK4TB/User_feature_analysis/User_features_analysis_new/Plot/With_user_filter_II/PCA/PCA_same_samples_final/Cluster_analysis/'
+scdata = ''
+dbsdata = ''
+saveplot = ''
 
 w = [23, 54, 84, 115, 145, 176]
 
