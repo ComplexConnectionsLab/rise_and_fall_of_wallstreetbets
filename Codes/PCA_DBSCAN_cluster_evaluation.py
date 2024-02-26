@@ -3,27 +3,18 @@ import pandas as pd
 from sklearn.cluster import DBSCAN
 from sklearn import metrics
 from sklearn.decomposition import PCA
-#import matplotlib.pyplot as plt
-#import matplotlib
-#matplotlib.style.use("seaborn-talk")
 from tqdm import tqdm
 
-
-path = '/mnt/TANK4TB/User_feature_analysis/User_features_analysis_new/Data/With_user_filter_II/User_standardized_features_new/'
-savedata = '/mnt/TANK4TB/User_feature_analysis/User_features_analysis_new/Data/With_user_filter_II/PCA_cluster_evaluation/D-B_index/'
-#savedata = '/mnt/TANK4TB/User_feature_analysis/User_features_analysis_new/Data/With_user_filter_II/PCA_cluster_evaluation/C-H_index/'
+path = ''
+savedata = ''
 
 dropcols = ['spy','amd','tsla','mu','aapl','amzn','msft','snap','nvda','spce','fb','dis','bynd','nflx','jnug','ge','rad','sq','atvi','uso','twtr','amc','bb','nok','pltr','gme']
 
-#w = [23, 54, 84, 115, 145, 176]
-#w = [7, 14, 21, 28, 35, 42, 49, 56, 63, 70, 77, 84, 91, 98, 105, 112, 119, 126, 133, 140, 147, 154, 161, 168, 175]
 w = np.arange(0,178)
 
 cols = list(np.arange(0,100))
 cols = list(map(str, cols))
 
-
-#epsilon = [0.5, 1, 1.5]
 epsilon = [1]
 min_neigh = [5, 10, 15]
 
