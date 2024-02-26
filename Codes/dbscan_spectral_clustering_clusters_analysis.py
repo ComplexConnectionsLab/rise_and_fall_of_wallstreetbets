@@ -9,11 +9,11 @@ from matplotlib import pyplot as plt
 from math import pi
 from sklearn.metrics.cluster import adjusted_rand_score
 
-scdata = '/mnt/TANK4TB/User_feature_analysis/User_features_analysis_new/Data/With_user_filter_II/PCA_same_samples_final/Spectral_Clustering/s_lt_0.3/'
-dbsdata = '/mnt/TANK4TB/User_feature_analysis/User_features_analysis_new/Data/With_user_filter_II/PCA_same_samples_final/DBSCAN/eps_1/'
+scdata = ''
+dbsdata = ''
 
-saveplot = '/mnt/TANK4TB/User_feature_analysis/User_features_analysis_new/Plot/With_user_filter_II/PCA/PCA_same_samples_final/Cluster_analysis/'
-savedata = '/mnt/TANK4TB/User_feature_analysis/User_features_analysis_new/Data/With_user_filter_II/PCA_same_samples_final/Cluster_analysis/'
+saveplot = ''
+savedata = ''
 
 weeks = ['24-30 Aug', '24-30 Sept', '24-30 Oct', '24-30 Nov', '24-30 Dec', '24-30 Jan']
 
@@ -137,12 +137,10 @@ fig.savefig(saveplot+"venn_top1_week_{}.png".format(i))
 
 fig, ax = plt.subplots(figsize = (10,10))
 v = venn2(subsets = (len(dbs2_only), len(sc2_only), len(both2)), set_labels = ('DBSCAN', 'Spectral clustering'), set_colors = colors, alpha = 0.6)
-#c = venn2_circles(subsets = (len(dbs2_only), len(sc2_only), len(both2)), linestyle='-', linewidth=2, color="black")
 
 for text in v.subset_labels:
   text.set_color('black')
   text.set_fontsize(16)
-  #text.set_fontweight('bold')
   
 for text in v.set_labels:
   text.set_fontsize(18)
@@ -155,12 +153,10 @@ fig.savefig(saveplot+"venn_top2_week_{}.png".format(i))
 
 fig, ax = plt.subplots(figsize = (10,10))
 v = venn2(subsets = (len(dbs3_only), len(sc3_only), len(both3)), set_labels = ('DBSCAN', 'Spectral clustering'), set_colors = colors, alpha = 0.6)
-#c = venn2_circles(subsets = (len(dbs1_only), len(sc1_only), len(both1)), linestyle='-', linewidth=2, color="black")
 
 for text in v.subset_labels:
   text.set_color('black')
   text.set_fontsize(16)
-  #text.set_fontweight('bold')
   
 for text in v.set_labels:
   text.set_fontsize(18)
@@ -200,12 +196,6 @@ both3_m = both3.mean(axis = 0).values
 both3_m = list(both3_m)
 both3_m.append(both3_m[0])
 
-# both1_m = pd.Series(both1_m) + 10
-# both2_m = pd.Series(both2_m) + 10
-# both3_m = pd.Series(both3_m) + 10
-
-# sc1.drop(columns = ['index'], inplace = True)
-# sc2.drop(columns = ['index'], inplace = True)
 
 dbs1_m = dbs1.mean(axis = 0).values
 dbs1_m = list(dbs1_m)
@@ -233,54 +223,31 @@ sc3_m = sc3.mean(axis = 0).values
 sc3_m = list(sc3_m)
 sc3_m.append(sc3_m[0])
 
-# ------- PART 1: Create background
  
 # number of variable
 categories = feats
 N = len(categories)
- 
-# What will be the angle of each axis in the plot? (we divide the plot / number of variable)
 angles = [n / float(N) * 2 * pi for n in range(N)]
 angles += angles[:1]
- 
-# Initialise the spider plot
 fig = plt.figure(figsize = (10,10))
 ax = plt.subplot(111, polar=True)
- 
-# If you want the first axis to be on top:
 ax.set_theta_offset(pi / 2)
 ax.set_theta_direction(-1)
- 
-# Draw one axe per variable + add labels
 plt.xticks(angles[:-1], categories)
- 
-# Draw ylabels
 ax.set_rlabel_position(0)
-#ax.set_yscale('log')
-#ax.set_yscale('symlog', linthresh=0.01)
-
-#plt.yticks([-0.3,0.3,1.3], ["-0.3","0.3","1.3"], color="grey", size=7)
-#plt.ylim(1,11)
- 
-# ------- PART 2: Add plots
 
 # Ind1
 ax.plot(angles, both1_m, linewidth=3, linestyle='solid', c = '#04E762', label = "Cluster 1: 5058")
-#ax.fill(angles, both1_m, c = '#04E762', alpha=0.1)
  
 # Ind2
 ax.plot(angles, both2_m, linewidth=3, linestyle='solid', c = '#DC0073', label="Cluster 2: 3607")
-#ax.fill(angles, both2_m, c = '#DC0073', alpha=0.1)
 
 # Ind3
 ax.plot(angles, both3_m, linewidth=3, linestyle='solid', c = '#F5B700', label="Cluster 3: 364")
-#ax.fill(angles, both3_m, c = '#F5B700', alpha=0.1)
 
 plt.title('Top clusters overlapping elements 24-30 Jan', fontsize = 15)
-# Add legend
 plt.legend(loc='upper right', bbox_to_anchor=(0.01, 0.1), frameon = False, fontsize = 15)
 plt.tight_layout()
-# Show the graph
 plt.show()
 fig.savefig(saveplot + "top_3_clusters_radar_week_{}.png".format(i)) 
 
@@ -321,11 +288,8 @@ std3 = np.asarray(std3)
 fig, ax = plt.subplots(figsize = (10,10))
 
 ax.plot(feats, both1_m, linewidth = 4, alpha = 1, c = '#04E762', label = "Cluster 1: 5058")
-#ax.fill_between(feats, both1_m-std1, both1_m+std1, color = '#04E762', alpha = 0.3)
 ax.plot(feats, both2_m, linewidth = 4, alpha = 1, c = '#DC0073', label="Cluster 2: 3607")
-#ax.fill_between(feats, both2_m-std2, both2_m+std2, color = '#DC0073', alpha = 0.3)
 ax.plot(feats, both3_m, linewidth = 4, alpha = 1, c = '#F5B700', label="Cluster 3: 364")
-#ax.fill_between(feats, both3_m-std3, both3_m+std3, color = '#F5B700', alpha = 0.3)
 
 ax.set_xlabel('Features', fontsize = 30)
 ax.set_ylabel('Avereage value', fontsize = 30)
