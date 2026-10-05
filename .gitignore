@@ -1,0 +1,22 @@
+# Data are not distributed
+data/*
+!data/README.md
+
+# Results
+outputs/
+
+# Local file with the opinion leaders' usernames: never commit
+leaders.local.json
+paths.local.json
+
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# OS / editors
+.DS_Store
+.vscode/
+.idea/
